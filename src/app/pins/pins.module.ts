@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
-
-const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
-  optionValueField: 'id',
-  optionTextField: 'name'
-};
+import { ReactiveFormsModule } from '@angular/forms';
+import { PinsRoutingModule } from './pins-routing.module';
+import { PinListComponent } from './pin-list/pin-list.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PinListComponent
+  ],
   imports: [
     CommonModule,
-    NgxSelectModule.forRoot(CustomSelectOptions)
+    ReactiveFormsModule,
+    PinsRoutingModule,
   ]
 })
 export class PinsModule { }
