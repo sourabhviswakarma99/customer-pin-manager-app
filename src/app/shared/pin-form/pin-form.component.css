@@ -1,0 +1,82 @@
+.container {
+  max-width: 600px;
+  margin: 60px auto 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  width: 150px;
+  text-align: right;
+  white-space: nowrap; 
+}
+
+input, select, .drag-drop-zone {
+  padding: 8px;
+  width: 70%;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0;
+}
+
+.drag-drop-zone {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #000;
+  text-align: center;
+  color: #cccccc;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.drag-drop-zone.dragging {
+  background-color: #e0e0e0;
+  border-color: #888888;
+}

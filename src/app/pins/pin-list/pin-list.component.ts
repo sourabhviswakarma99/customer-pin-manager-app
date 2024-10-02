@@ -12,6 +12,16 @@ export class PinListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.loadPinsData();
   }
+
+  loadPinsData() {
+    const storedData = localStorage.getItem('pinsData');
+    if (storedData) {
+      this.pins = JSON.parse(storedData);
+      console.log(this.pins);
+    }
+  }
+
 
 }

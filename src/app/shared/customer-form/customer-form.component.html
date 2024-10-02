@@ -1,1 +1,42 @@
-<p>customer-form works!</p>
+<h4>Create Customer</h4>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title*</label>
+      <input id="title" formControlName="title" type="text" placeholder="Enter title">
+      <div *ngIf="customerForm.get('title')?.invalid && customerForm.get('title')?.touched">
+        Title is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email*</label>
+      <input id="email" formControlName="email" type="email" placeholder="Enter email">
+      <div *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched">
+        <span *ngIf="customerForm.get('email')?.errors?.['required']">Email is required.</span>
+        <span *ngIf="customerForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="region">Region*</label>
+      <select id="region" formControlName="region">
+        <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+      </select>
+      <div *ngIf="customerForm.get('region')?.invalid && customerForm.get('region')?.touched">
+        Region is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="country">Country*</label>
+      <select id="country" formControlName="country" [disabled]="countries.length === 0">
+        <option *ngFor="let country of countries" [value]="country.country">{{ country.country }}</option>
+      </select>
+      <div *ngIf="customerForm.get('country')?.invalid && customerForm.get('country')?.touched">
+        Country is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="customerForm.invalid">Create Customer</button>
+  </form>
+  
