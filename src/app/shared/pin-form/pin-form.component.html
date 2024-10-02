@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Create a New Pin</h2>
+  <h2>Add Pin</h2>
   <form [formGroup]="pinForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="title">Title*</label>
@@ -11,18 +11,13 @@
 
     <div class="form-group">
       <label for="image">Select Image*</label>
-      <div
-        class="drag-drop-zone"
-        (dragover)="onDragOver($event)"
-        (dragleave)="onDragLeave($event)"
-        (drop)="onDrop($event)"
-        (click)="triggerFileInput()"
-        [class.dragging]="dragging">
+      <div class="drag-drop-zone" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)"
+        (drop)="onDrop($event)" (click)="triggerFileInput()" [class.dragging]="dragging">
         <p *ngIf="!selectedImageBase64">Choose & Drag and Drop file here</p>
         <img *ngIf="selectedImageBase64" [src]="selectedImageBase64" alt="Preview" style="width: 100px; height: 100px;">
       </div>
       <input id="image" type="file" (change)="onImageChange($event)" accept="image/*" #fileInput hidden>
-      
+
       <div *ngIf="pinForm.get('image')?.invalid && pinForm.get('image')?.touched" class="error">
         Image is required.
       </div>
@@ -30,19 +25,24 @@
 
     <div class="form-group">
       <label for="collaborators">Select Collaborators*</label>
-      <select id="collaborators" formControlName="collaborators">
-        <option *ngFor="let collaborator of collaborators" [value]="collaborator">{{ collaborator }}</option>
-      </select>
+      <ngx-select 
+        [items]="collaborators"
+        formControlName="collaborators"
+        [multiple]="true"
+        bindLabel="text"      
+        placeholder="Select Collaborators">
+      </ngx-select>
+    
       <div *ngIf="pinForm.get('collaborators')?.invalid && pinForm.get('collaborators')?.touched" class="error">
         At least one collaborator is required.
       </div>
-    </div>    
+    </div>
 
     <div class="form-group">
       <label>Privacy*</label>
       <div class="radio-group">
-          <input type="radio" value="private" formControlName="privacy"> Private
-          <input type="radio" value="public" formControlName="privacy"> Public
+        <input type="radio" value="private" formControlName="privacy"> Private
+        <input type="radio" value="public" formControlName="privacy"> Public
       </div>
       <div *ngIf="pinForm.get('privacy')?.invalid && pinForm.get('privacy')?.touched" class="error">
         Privacy option is required.

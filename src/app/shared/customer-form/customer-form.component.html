@@ -1,42 +1,45 @@
-<h4>Create Customer</h4>
-<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
-    <div>
+<div class="container">
+  <h2>Create Customer</h2>
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
       <label for="title">Title*</label>
       <input id="title" formControlName="title" type="text" placeholder="Enter title">
-      <div *ngIf="customerForm.get('title')?.invalid && customerForm.get('title')?.touched">
+      <div *ngIf="customerForm.get('title')?.invalid && customerForm.get('title')?.touched" class="error">
         Title is required.
       </div>
     </div>
   
-    <div>
+    <div class="form-group">
       <label for="email">Email*</label>
       <input id="email" formControlName="email" type="email" placeholder="Enter email">
-      <div *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched">
+      <div *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched" class="error">
         <span *ngIf="customerForm.get('email')?.errors?.['required']">Email is required.</span>
         <span *ngIf="customerForm.get('email')?.errors?.['email']">Enter a valid email.</span>
       </div>
     </div>
   
-    <div>
+    <div class="form-group">
       <label for="region">Region*</label>
       <select id="region" formControlName="region">
         <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
       </select>
-      <div *ngIf="customerForm.get('region')?.invalid && customerForm.get('region')?.touched">
+      <div *ngIf="customerForm.get('region')?.invalid && customerForm.get('region')?.touched" class="error">
         Region is required.
       </div>
     </div>
   
-    <div>
+    <div class="form-group">
       <label for="country">Country*</label>
       <select id="country" formControlName="country" [disabled]="countries.length === 0">
         <option *ngFor="let country of countries" [value]="country.country">{{ country.country }}</option>
       </select>
-      <div *ngIf="customerForm.get('country')?.invalid && customerForm.get('country')?.touched">
+      <div *ngIf="customerForm.get('country')?.invalid && customerForm.get('country')?.touched" class="error">
         Country is required.
       </div>
     </div>
   
-    <button type="submit" [disabled]="customerForm.invalid">Create Customer</button>
+    <div class="form-group button-group">
+      <button type="submit" [disabled]="customerForm.invalid">Create Customer</button>
+    </div>
   </form>
-  
+</div>

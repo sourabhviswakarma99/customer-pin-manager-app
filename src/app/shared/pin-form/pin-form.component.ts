@@ -30,8 +30,9 @@ export class PinFormComponent implements OnInit {
   }
 
   loadCollaborators() {
-    this.collaborators = this.customerService.getCustomerData().map(customer => customer.title);
-    console.log(this.collaborators);
+    this.collaborators = this.customerService.getCustomerData().map(customer => ({
+      text: customer.title
+    }));
   }
 
   onImageChange(event: any) {
@@ -82,7 +83,7 @@ export class PinFormComponent implements OnInit {
         collaborators: this.pinForm.get('collaborators')?.value,
         privacy: this.pinForm.get('privacy')?.value
       };
-
+console.log(pinData);
       this.savePinData(pinData);
       console.log('Pin Form Data:', pinData);
       this.router.navigate(['/pins']);

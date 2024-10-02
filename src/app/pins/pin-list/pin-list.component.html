@@ -19,7 +19,7 @@
         <tr *ngFor="let pin of pins">
           <td>{{ pin.title }}</td>
           <td><img [src]="pin.image" alt="Pin Image" width="50px" height="50px"></td>
-          <td>{{ pin.collaborators }}</td>
+          <td [innerHTML]="pin.collaborators.join('<br>')">{{ pin.collaborators }}</td>
           <td>{{ pin.privacy }}</td>
         </tr>
       </tbody>
