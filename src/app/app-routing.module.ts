@@ -4,9 +4,9 @@ import { CustomerFormComponent } from './shared/customer-form/customer-form.comp
 import { PinFormComponent } from './shared/pin-form/pin-form.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/pins', pathMatch: 'full' }, 
-  { path:'add-customer', component: CustomerFormComponent },
-  { path:'add-pin', component: PinFormComponent },
+  { path: '', redirectTo: '/pins', pathMatch: 'full' },
+  { path: 'add-customer', component: CustomerFormComponent },
+  { path: 'add-pin', component: PinFormComponent },
   { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
   { path: 'pins', loadChildren: () => import('./pins/pins.module').then(m => m.PinsModule) },
 

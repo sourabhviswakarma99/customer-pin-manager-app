@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="d-flex justify-content-end mb-1">
+      <div class="d-flex flex-column">
+        <button class="btn btn-secondary mb-2 w-100" routerLink="/add-customer">+ Add Customer</button>
+        <button class="btn btn-secondary w-100" routerLink="/add-pin">+ Add Pin</button>
+      </div>
+    </div>
+  
+    <h4>List of Customers</h4>
+    
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Email</th>
+          <th>Region</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.title }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.region }}</td>
+          <td>{{ customer.country }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -13,6 +13,10 @@ h2 {
   margin-bottom: 20px;
 }
 
+.form-field{
+  width: 100%;
+}
+
 .form-group {
   display: flex;
   align-items: center;
@@ -30,7 +34,7 @@ label {
 
 input, select {
   padding: 8px;
-  width: 70%;
+  width: 100%;
   box-sizing: border-box;
   margin-bottom: 5px;
 }

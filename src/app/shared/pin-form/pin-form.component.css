@@ -13,6 +13,10 @@ h2 {
   margin-bottom: 20px;
 }
 
+.form-field {
+  width: 70%;
+}
+
 .form-group {
   display: flex;
   align-items: center;
@@ -25,14 +29,21 @@ label {
   display: block;
   width: 150px;
   text-align: right;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
-input, select, .drag-drop-zone {
+input,
+select,
+.drag-drop-zone {
   padding: 8px;
-  width: 70%;
+  width: 100%;
   box-sizing: border-box;
   margin-bottom: 5px;
+}
+
+::ng-deep .ngx-select_multiple[_ngcontent-khs-c47] {
+  height: auto;
+  padding: 8px 8px 0;
 }
 
 .radio-group {
@@ -72,13 +83,14 @@ ngx-select {
 }
 
 .drag-drop-zone {
-  width: 70%;
+  width: 100%;
   padding: 10px;
-  border: 1px solid #000;
+  border: 1px solid #cac7c7;
   text-align: center;
   color: #cccccc;
   cursor: pointer;
   box-sizing: border-box;
+  border-radius: 4px;
 }
 
 .drag-drop-zone.dragging {
